@@ -1,0 +1,327 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - EcoCommerce</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #000000; /* Changed to black */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* About Content */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .about-text h3 {
+            color: #2e8b57;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            margin: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: #2e8b57;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: #2e8b57;
+            margin-bottom: 20px;
+        }
+
+        /* Team Section */
+        .team {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .team h2 {
+            color: #2e8b57;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .team-member {
+            width: 250px;
+            margin: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h3 {
+            color: #2e8b57;
+            margin-bottom: 5px;
+        }
+
+        .member-info p {
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000; /* Changed to black */
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content, .mission-vision {
+                flex-direction: column;
+            }
+
+            .card {
+                margin: 10px 0;
+            }
+
+            .team-member {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-text, .card {
+                min-width: 100%;
+                padding: 20px 15px;
+            }
+        }
+    </style>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    {%include "navbar.html" %}
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Shop in style</h1>
+            <p class="lead fw-normal text-white-50 mb-0">All Product are Available</p>
+        </div>
+    </div>
+</header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Our Commitment to Sustainability</h2>
+            <p>At EcoCommerce, we believe in creating a marketplace that not only serves our customers but also protects our planet. Join us in our journey towards a greener future.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="about-content">
+            <div class="about-text">
+                <h3>Our Story</h3>
+                <p>Founded in 2020, EcoCommerce began as a small initiative to promote sustainable shopping alternatives. What started as a passion project has now grown into a thriving platform connecting eco-conscious consumers with responsible sellers worldwide.</p>
+                <p>Our team of environmental enthusiasts and e-commerce experts work tirelessly to ensure that every product on our platform meets strict sustainability criteria while maintaining high quality standards.</p>
+            </div>
+            <div class="about-text">
+                <h3>Why Choose Us</h3>
+                <p>We carefully vet all our vendors to ensure they adhere to sustainable practices. From sourcing materials to packaging and shipping, every step is evaluated for its environmental impact.</p>
+                <p>By shopping with us, you're not just buying products - you're supporting ethical businesses, reducing your carbon footprint, and contributing to a circular economy that values our planet's resources.</p>
+            </div>
+        </section>
+
+        <section class="mission-vision">
+            <div class="card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+                <p>To revolutionize online shopping by providing a platform where sustainability meets convenience, making eco-friendly products accessible to everyone while promoting responsible consumption.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>We envision a future where e-commerce operates in complete harmony with nature, where every purchase contributes positively to environmental conservation and community well-being.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h3>Our Values</h3>
+                <p>Sustainability, Transparency, Innovation, and Community are the core values that guide every decision we make at EcoCommerce.</p>
+            </div>
+        </section>
+
+        <section class="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Team Member">
+                    <div class="member-info">
+                        <h3>Sarah Johnson</h3>
+                        <p>Founder & CEO</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Team Member">
+                    <div class="member-info">
+                        <h3>Michael Chen</h3>
+                        <p>Sustainability Director</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Team Member">
+                    <div class="member-info">
+                        <h3>Emma Rodriguez</h3>
+                        <p>Community Manager</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    {%include 'footer.html'%}    
+</body>
+</html>
