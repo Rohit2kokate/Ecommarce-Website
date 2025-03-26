@@ -7,7 +7,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = "Category"
     
+
 class Customer(models.Model):
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
@@ -20,10 +23,13 @@ class Customer(models.Model):
     
 class Product(models.Model):
     product_name = models.CharField(max_length=100)
-    product_price=models.DecimalField(max_digits=10,decimal_places=4,default=0.0)
+    product_price=models.DecimalField(max_digits=10,decimal_places=2)
     product_description=models.TextField()
-    product_image=models.ImageField(upload_to='upload/images/')
+    product_image=models.ImageField(upload_to='images/')
     product_category=models.ForeignKey(Category,on_delete=models.CASCADE,default=1)
+    #Sale
+    is_sale=models.BooleanField(default=False)
+    sale_price=models.DecimalField(max_digits=10,decimal_places=2)
 
     def __str__(self):
         return self.product_name
@@ -41,9 +47,10 @@ class Order(models.Model):
     addres=models.CharField(max_length=50)
     phone_no=models.IntegerField()
     order_date = models.DateTimeField(default=datetime.datetime.now)
-    order_status = models.CharField(max_length=100, default='pending')
-    total_cost = models.DecimalField(max_digits=10, choices=choice,default=0.0,decimal_places=6)
+    order_status = models.CharField(max_length=100, default='pending',choices=choice)
+    total_cost = models.DecimalField(max_digits=10, decimal_places=2)
+
 
     def __str__(self):
-        return self.product_name
+        return f" {self.product_name} - Total: ${self.total_cost}"
 
